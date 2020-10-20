@@ -10,43 +10,54 @@ using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
 
+
 namespace AngularCapStone.Services
 {
     public class DAL : IDAL
     {
         private string connString;
+        private SqlConnection conn;
+
         public DAL (IConfiguration config)
         {
             connString = config.GetConnectionString("default");
+            conn = new SqlConnection(connString);
         }
-        public void AddQandA(QandA qandA)
+        public void AddQandA(QandA qandA)  //FINISHED
         {
-            SqlConnection conn = new SqlConnection(connString);
-            //string command = "INSERT INTO QandA (qandA.Question, qandA.Answer) ";
-            //command += "VALUES (@qandA.Question, @qandA.Answer)";
 
-            //conn.Query(command);
             conn.Insert<QandA>(qandA);
         }
 
-        public void addToFavorites(long id, string userID)
+        public void AddToFavorites(Favorites myFave)
         {
-            throw new NotImplementedException();
+            string query = "SELECT * FROM Favorites";
+            List<Favorites> list = conn.Query<Favorites>(query).ToList();
+            foreach (Favorites item in list)
+            {
+                if (item.Qid == myFave.Qid && item.UserID == myFave.UserID)
+                {
+                    return;
+                }
+            }
+            conn.Insert<Favorites>(myFave);
         }
 
-        public IEnumerable<Favorites> GetFavorites()
+        public IEnumerable<Favorites> GetFavorites() //FINISHED
         {
-            throw new NotImplementedException();
+            
+            string query = "SELECT * FROM Favorites";
+            return conn.Query<Favorites>(query).ToList();
         }
 
-        public IEnumerable<QandA> GetQandA()
+        public IEnumerable<QandA> GetQandA() //FINISHED
         {
-            throw new NotImplementedException();
+            return conn.GetAll<QandA>().ToList();
         }
 
-        public void removeFromFavorites(long id, string userID)
+        public void RemoveFromFavorites(Favorites myFavs) //FINISHED
         {
-            throw new NotImplementedException();
+            conn.Delete(myFavs);
         }
     }
 }

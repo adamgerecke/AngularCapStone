@@ -14,9 +14,9 @@ namespace AngularCapStone.Services
 
         void AddQandA(QandA qandA);
 
-        void addToFavorites(long id, string userID);
+        void AddToFavorites(Favorites myFavs);
 
-        void removeFromFavorites(long id, string userID);
+        void RemoveFromFavorites(Favorites myFavs);
 
     }
 }

@@ -25,5 +25,13 @@ namespace AngularCapStone.Controllers
             QandA test = new QandA() { Answer = "The Answer", Question = "The Question" };
             dal.AddQandA(test);            
         }
+
+        [HttpGet]
+        public IEnumerable<QandA> GetAll()
+        {
+            return dal.GetQandA();
+        }
+
+        
     }
 }

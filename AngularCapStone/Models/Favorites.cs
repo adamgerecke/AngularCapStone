@@ -9,7 +9,7 @@ namespace AngularCapStone.Models
     [Table("Favorites")]
     public class Favorites
     {
-        public long Id { get; set; }
+        public long Qid { get; set; }
         public string UserID { get; set; }
     }
 }
