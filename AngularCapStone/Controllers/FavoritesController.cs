@@ -22,7 +22,7 @@ namespace AngularCapStone.Controllers
         [HttpGet("addFavs")]
         public void addFavs()
         {
-            Favorites myFavs = new Favorites() { id = 3, userid = "RatKing" };
+            Favorites myFavs = new Favorites() { id = 3, userid = "RatKing", question = "How do?", answer = "Do how!" };
             dal.AddToFavorites(myFavs);
         }
 
@@ -35,7 +35,7 @@ namespace AngularCapStone.Controllers
         [HttpPost]
         public void DeleteFav()
         {
-            Favorites myFavs = new Favorites() { id = 1, userid = "RatKing" };
+            Favorites myFavs = new Favorites() { id = 1, userid = "RatKing", question = "How do?", answer = "Do how!" };
             dal.RemoveFromFavorites(myFavs);
         }
     }
