@@ -1,4 +1,6 @@
 export interface Favorites {
-  Qid: number;
-  UserID: string;
+  id: number;
+  userid: string;
+  answer: string;
+  question: string;
 }

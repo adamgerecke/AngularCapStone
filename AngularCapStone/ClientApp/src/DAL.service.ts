@@ -19,27 +19,15 @@ export class DALService {
 
 
   getAllQandA() {
-    let test = this.http.get(this.QandAUrl);
-    console.log(test);
+   // let test = this.http.get(this.QandAUrl);
+    //console.log(test);
     return this.http.get(this.QandAUrl);
   }
 
 
 
-  getAllFavorites(id) {
-    return this.http.get(`${this.FavUrl}/${id}`);
+  getAllFavorites() {
+    return this.http.get(this.FavUrl);
   }
-
-
-
- /* createEmployee(emp) {
-    return this.http.post<QandA>(this.apiUrl, emp); //2 itesm, the url and the data we want to pass
-  }
-
-
-
-  updateEmployee(emp) {
-    return this.http.post<Employee>(this.apiUrl, emp);
-  } */
 
 }

@@ -1,7 +1,8 @@
 <div style="border: 1px solid red">QandA Component</div>
 
 
-<div *ngFor="let item of qandalist">
+<div style="border: 3px solid blue" *ngFor="let item of qandalist">
   {{item.question}}<br />
   {{item.answer}}
+  <button (click)="addToFav()">Add t' Fav</button>
 </div>

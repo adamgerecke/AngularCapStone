@@ -35,7 +35,7 @@ namespace AngularCapStone.Services
             List<Favorites> list = conn.Query<Favorites>(query).ToList();
             foreach (Favorites item in list)
             {
-                if (item.Qid == myFave.Qid && item.UserID == myFave.UserID)
+                if (item.id == myFave.id && item.userid == myFave.userid)
                 {
                     return;
                 }

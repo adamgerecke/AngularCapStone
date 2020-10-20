@@ -1,1 +1,8 @@
-﻿<div style="border: 1px solid red">favorites Component</div>
+<div style="border: 1px solid red">Favorite Component</div>
+
+
+<div style="border: 3px solid blue" *ngFor="let item of favlist">
+  {{item.question}}<br />
+  {{item.answer}}
+  <button (click)="deleteFav()">Delete Favorite</button>
+</div>
