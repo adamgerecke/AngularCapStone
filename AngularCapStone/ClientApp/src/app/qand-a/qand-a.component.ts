@@ -11,15 +11,15 @@ import { QandA} from '../interfaces/IQandA';
 export class QandAComponent {
 /** QandA ctor */
 
-  qandalist: QandA[];
+  qandalist;
 
   constructor(private dal: DALService) { }
 
-  getQandA() {
+  ngOnInit(): void {
     this.dal.getAllQandA().subscribe(
-      (data : QandA[]) => {
-        this.qandalist = { ...data }; 
-      })
-  }
-
+      (data: QandA) =>
+        this.qandalist = data
+    );
+    console.log(this.dal.getAllQandA());
+    }
 }

@@ -19,6 +19,8 @@ export class DALService {
 
 
   getAllQandA() {
+    let test = this.http.get(this.QandAUrl);
+    console.log(test);
     return this.http.get(this.QandAUrl);
   }
 
